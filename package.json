@@ -1,0 +1,25 @@
+{
+  "name": "TDK",
+  "version": "1.0.0",
+  "description": "Training application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "TDK",
+    "training",
+    "application"
+  ],
+  "author": "Tomas Holubek",
+  "license": "Private",
+  "devDependencies": {
+    "electron": "^1.8.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1"
+  }
+}
