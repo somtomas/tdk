@@ -5,6 +5,7 @@
 var $ = require("jquery");
 var video = require("./app/Video.js");
 var secondScene = require("./app/SecondScene.js");
+var quest = require("./app/Quest.js");
 
 $("#landing").click(function() {
 
@@ -12,7 +13,7 @@ $("#landing").click(function() {
 
 	$("#app").html("");
 	//$("#app").append(video.html());
-	$("#app").append(secondScene.html());
+	$("#app").append(quest.create([["sdaf", "qwer"],["rtu", "sdfgsdf"],["asdf asd f", "asefawefa"]]));
 	
 	
 		//$("<div></div>").html("<video controls><source src= type=video/mp4></video>")

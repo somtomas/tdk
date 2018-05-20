@@ -1,4 +1,5 @@
 var $ = require("jquery");
+var button = require("./Button.js");
 
 module.exports = {
 
@@ -10,7 +11,7 @@ module.exports = {
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4")
-						.text("hello 1"))
+						.html(button.html()))
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4")
