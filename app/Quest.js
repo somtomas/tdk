@@ -2,6 +2,7 @@ var $ = require("jquery");
 
 module.exports = {
 
+	// return question mark
 	img: function() {
 		var _this = this;
 		_this.counter = _this.counter + 1;
@@ -9,10 +10,12 @@ module.exports = {
 		return $("<img>").attr("src", address).attr("class", "cislo");
 	},
 	
+	// returns bootstrap cell with specific bootstrap width
 	cell: function(bootstrapWidth) {
 		return $("<div></div>").attr("class", "col-md-" + bootstrapWidth);
 	},
 	
+	// return question with choices and logic
 	quest: function(arr) {
 		var _this = this;
 		var  $outer = $("<div></div>").attr("class", "quest");
@@ -31,14 +34,16 @@ module.exports = {
 		return $outer;
 	},
 
-	create: function(arr) {
+	create: function(menuAction, arr) {
 		var _this = this;
 		
 		_this.counter = 0;
 		
-		var $row = $("<div></div>").attr("class", "row");
+		var $outer = $("<div></div>").attr("class", "quest-outer");
 	
-		for(var val of arr) {	
+		for(var val of arr) {
+			let $row = $("<div></div>").attr("class", "row");
+		
 			let $cell = _this.cell(2);
 			$cell.append(_this.img());
 			$row.append($cell);
@@ -46,8 +51,14 @@ module.exports = {
 			$cell = _this.cell(10);
 			$cell.append(_this.quest(val));
 			$row.append($cell);
+			
+			$outer.append($row);
 		}
+		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat");
+		$outer.append($continue);
+		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
+		$outer.append($menu);
 		
-		return $row;
+		return $outer;
 	}
 }
