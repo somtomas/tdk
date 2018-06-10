@@ -16,7 +16,7 @@ module.exports = {
 	},
 	
 	// return question with choices and logic
-	quest: function(arr) {
+	quest: function(obj) {
 		var _this = this;
 		var  $outer = $("<div></div>").attr("class", "quest");
 		
@@ -26,7 +26,9 @@ module.exports = {
 			$(this).addClass("selected");
 		}
 		
-		for(var val of arr) {
+		$outer.append($("<h4></h4>").text(obj.quest).attr("class", "question"));
+		
+		for(var val of obj.answers) {
 			let $span = $("<p></p>").text(val).click(logic);
 			$outer.append($span);
 		}
@@ -34,14 +36,14 @@ module.exports = {
 		return $outer;
 	},
 
-	create: function(menuAction, arr) {
+	create: function(menuAction, quests) {
 		var _this = this;
 		
 		_this.counter = 0;
 		
 		var $outer = $("<div></div>").attr("class", "quest-outer");
 	
-		for(var val of arr) {
+		for(var val of quests) {
 			let $row = $("<div></div>").attr("class", "row");
 		
 			let $cell = _this.cell(2);
