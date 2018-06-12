@@ -36,7 +36,7 @@ module.exports = {
 		return $outer;
 	},
 
-	create: function(menuAction, quests) {
+	create: function(menuAction, quests, continueAction) {
 		var _this = this;
 		
 		_this.counter = 0;
@@ -56,7 +56,7 @@ module.exports = {
 			
 			$outer.append($row);
 		}
-		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat");
+		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat").click(continueAction);
 		$outer.append($continue);
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);

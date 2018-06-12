@@ -4,7 +4,8 @@
   "description": "Training application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-win": "electron-packager . TDK --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icon/win/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"TDK\""
   },
   "keywords": [
     "Electron",
@@ -15,7 +16,8 @@
   "author": "Tomas Holubek",
   "license": "Private",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.7",
+    "electron-packager": "^12.1.0"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
