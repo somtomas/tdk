@@ -18,7 +18,7 @@ module.exports = {
 		//let $name = $("<p></p>").attr("class", "video-player-name").text(_this.name);
 		//$outer.append($name);
 	
-		let $video = $("<video></video>");
+		let $video = $("<video></video>").attr("controls", "true");
 		let $play = $("<img>").attr("src", "img/play.png").attr("class", "video-play-absolute")
 				.click(function() {
 					let $v = $video[0];
@@ -52,13 +52,32 @@ module.exports = {
 		
 		$outer.append($video);
 		
-		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat").click(questAction);
-		$outer.append($continue);
+		
+		let img = new Image();
+		img.onload = function() {
+		
+			let $a = $("<a></a>");
+			let pomer = this.height / 2 / (window.innerHeight / 10);
+			let w = this.width / pomer + "px";
+			let $continue = $("<div></div>").attr("class", "pokracovat").css("width", w).click(questAction)
+				.append($a);
+			let futurePos = "0 " + (this.height / pomer / 2) + "px";
+			$a.hover(function() {
+				$(this).css("background-position", futurePos);
+			}, function() {
+				 $(this).css("background-position", "0 0");
+			});
+				//background-position
+			$outer.append($continue);
+		}
+		img.src = 'img/button_pokracovat_modry.png';
+		
+		
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);
 		let $name = $("<img>").attr("src", "img/nazev_EP50.png").attr("class", "video-name-absolute");
 		$outer.append($name);
-		$outer.append($play);
+		//$outer.append($play);
 		
 		return $outer;
 	}

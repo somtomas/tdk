@@ -19,22 +19,23 @@ module.exports = {
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
-						.html($("<img>").attr("src", "img/nahlad_1_ep50.png").attr("class", "video-png").click(_this.data[0])))
+						.html($("<img>").attr("src", "img/tpa6_nahlad.png").attr("class", "video-png").click(_this.data[2])))
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
-						.html($("<img>").attr("src", "img/nahlad_1.png").attr("class", "video-png").click(_this.data[1])))
+						.html($("<img>").attr("src", "img/p1000_nahlad.png").attr("class", "video-png").click(_this.data[1])))
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
-						.html($("<img>").attr("src", "img/obrazok_2.png").attr("class", "video-png").click(_this.data[2])));
+						.html($("<img>").attr("src", "img/ep50_nahlad.png").attr("class", "video-png").click(_this.data[0])));
 		
 		$outer.append($videorow);
 		
-		var sh = screen.availHeight;
+		var sh = window.innerHeight;
 		let nh = parseInt(sh / 10);
 		let bh = parseInt(sh / 5);
 		
+		/*
 		let $namerow = $("<div></div>")
 		        .attr("class", "name-row")
 				.append($("<div></div>")
@@ -42,7 +43,7 @@ module.exports = {
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 name-cell")
-							.html($("<img>").attr("src", "img/nazev_EP50.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0])))
+							.html($("<img>").attr("src", "img/nazev_tpa6.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 name-cell")
@@ -50,9 +51,9 @@ module.exports = {
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 name-cell")
-							.html($("<img>").attr("src", "img/nazev_tpa6.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0]))));
+							.html($("<img>").attr("src", "img/nazev_EP50.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0]))));
 		
-		$outer.append($namerow);
+		$outer.append($namerow);*/
 	
 		let $btnrow = $("<div></div>")
 		        .attr("class", "video-row")
@@ -61,15 +62,15 @@ module.exports = {
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").css("height", bh + "px").click(_this.data[0])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").css("height", bh + "px").click(_this.data[0])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").css("height", bh + "px").click(_this.data[0]))));
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0]))));
 		
 		$outer.append($btnrow);
 		

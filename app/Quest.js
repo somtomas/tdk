@@ -35,6 +35,34 @@ module.exports = {
 		
 		return $outer;
 	},
+	
+	pokracovat: function(quests, continueAction) {
+		var _this = this;
+	
+		var $$qs = document.querySelectorAll(".quest");
+		var wrong = 0;
+		var right = 0;
+		for(var i = 0; i < quests.length; i++) {
+			console.log(i + ": ");
+			
+			let obj = quests[i];
+			
+			console.log(obj);
+			
+			let $$ps = document.querySelectorAll("p", $$qs[i]);
+			let $r = $($$ps[obj.right]);
+			
+			console.log("Vyberieme spravne p-cko: " + $r.html());
+			
+			if($r.hasClass('selected')) {
+				right++;
+				$(".selected", $$qs[i]).addClass("quest-right");
+			} else {
+				wrong++;
+				$(".selected", $$qs[i]).addClass("quest-wrong");
+			}
+		}
+	},
 
 	create: function(menuAction, quests, continueAction) {
 		var _this = this;
@@ -56,7 +84,7 @@ module.exports = {
 			
 			$outer.append($row);
 		}
-		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat").click(continueAction);
+		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat").click(function() { _this.pokracovat(quests, continueAction);});
 		$outer.append($continue);
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);

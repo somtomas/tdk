@@ -1,0 +1,41 @@
+.cislo {
+  width: 80%;
+}
+
+.quest h4 {
+  font-size: 4vh;
+  color: white;
+}
+
+.quest p {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 2.8vh;
+}
+
+.quest p:hover {
+  color: rgb(220,223,228);
+  cursor: pointer;
+}
+
+.quest p.selected {
+  color: rgb(231,207,80);
+}
+
+.quest p.selected:hover {
+  color: rgb(196,172,35);
+  cursor: pointer;
+}
+
+.quest-outer {
+  margin: 4%;
+}
+
+.quest-wrong {
+  color: rgb(232, 82, 82) !important;
+}
+
+.quest-right {
+  color: rgb(154, 201, 71) !important;
+}
