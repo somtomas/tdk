@@ -10,7 +10,7 @@ module.exports = {
 		_this.name = name;
 	},
 
-	html: function(menuAction, questAction) {
+	html: function(menuAction, questAction, wrong, right) {
 		var _this = this;
 		
 		var $outer = $("<div></div>").attr("class", "video-player-outer");
@@ -52,7 +52,7 @@ module.exports = {
 		
 		$outer.append($video);
 		
-		
+		/*
 		let img = new Image();
 		img.onload = function() {
 		
@@ -71,13 +71,20 @@ module.exports = {
 			$outer.append($continue);
 		}
 		img.src = 'img/button_pokracovat_modry.png';
-		
+		*/
 		
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);
 		let $name = $("<img>").attr("src", "img/nazev_EP50.png").attr("class", "video-name-absolute");
 		$outer.append($name);
 		//$outer.append($play);
+		
+		//console.log("video prijalo: wrong(" + wrong + "), right(" + right + ")");
+		let $continue = $("<img>").attr("src", "img/button_modry.png").attr("class", "pokracovat").click(function() {
+			//console.log("video odosiela: wrong(" + wrong + "), right(" + right + ")");
+			questAction(wrong, right);
+		});
+		$outer.append($continue);
 		
 		return $outer;
 	}

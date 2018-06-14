@@ -7,24 +7,7 @@ var video = require("./app/Video.js");
 var secondScene = require("./app/SecondScene.js");
 var quest = require("./app/Quest.js");
 var success = require("./app/Success.js");
-
-var quests_1_1 = [{
-	quest: "Z jakých hlavních částí se skládá výrobní zařízení EP50?",
-	answers: ["a)	zařízení lisu s ovládáním, nakládací automat s ovládáním, dopravníkový pás", "b)	zařízení lisu s ovládáním, dopravníkový pás, násypník se svodem", "c)	zařízení lisu s ovládáním, nakládací automat s ovládáním, dopravníkový pás, násypka se zvodem materiálu"],
-	right: 2
-}, {
-	quest: "Jako začíná proces výroby na zařízení EP50?",
-	answers: ["a)	naplněním matrice materiálem", "b)	výběrem přesného tipu produktu podle zadaného receptu", "c)	ručním naplněním násypníku materiálem"],
-	right: 1
-}, {
-	quest: "Z jakých hlavních častí se skládá lisovací zařízení?",
-	answers: ["a)	plnící bota, filomatika, odsávaní, matrice, horní a dolní razník upnutý ve stroji", "b)	plnící bota, matrice, horní a dolní razník upnutý v adaptéru", "c)	matrice, karusel, filomatika, horní a dolní razník upnutý ve stroji"],
-	right: 1
-}, {
-	quest: "K čemu slouží plnící bota?",
-	answers: ["a)	plnění matrice materiálem a posun výlisků na dráhu", "b)	pře naplněni násypky materiálem", "c)	posyp výlisků zirkonem"],
-	right: 1
-}];
+var questions = require("./app/QuestionsConst.js");
 
 // menu screen showing
 var toSecond = function() {
@@ -32,27 +15,37 @@ var toSecond = function() {
 	$("#app").append(secondScene.html());
 };
 
-var toSuccess = function() {
+var toSuccess = function(wrong, right) {
 	$("#app").html("");
-	$("#app").append(success.html(toSecond));
+	$("#app").append(success.html(toSecond, wrong, right));
 };
 
-// first questionaire
-var quest_1_1 = function() {
+var quest_3_2 = function(wrong, right) {
 	$("#app").html("");
 	$("#app").append(
-		quest.create(toSecond, quests_1_1, toSuccess));
+		quest.create(toSecond, questions.quests_3_2, toSuccess, wrong, right));
 };
 
-// first video
-var video_1_1 = function() {
+var video_3_2 = function(wrong, right) {
+	video.setSrc("video/ep50/proces2.mp4", "video/mp4", "NAZOV VIDEA CISLO 1");
+	$("#app").html("");
+	$("#app").append(video.html(toSecond, quest_3_2, wrong, right));
+};
+
+var quest_3_1 = function(wrong, right) {
+	$("#app").html("");
+	$("#app").append(
+		quest.create(toSecond, questions.quests_3_1, video_3_2, wrong, right));
+};
+
+var video_3_1 = function() {
 	video.setSrc("video/ep50/vyroba1.mp4", "video/mp4", "NAZOV VIDEA CISLO 1");
 	$("#app").html("");
-	$("#app").append(video.html(toSecond, quest_1_1));
+	$("#app").append(video.html(toSecond, quest_3_1, 0, 0));
 };
 
 // set menu actions
-secondScene.setData([video_1_1, video_1_1, video_1_1]);
+secondScene.setData([video_3_1, video_3_1, video_3_1]);
 
 $("#landing").click(function() {
 

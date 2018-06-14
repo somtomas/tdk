@@ -37,10 +37,6 @@
   color: rgb(220,223,228);
 }
 
-.quest label.disabled.selected {
-  color: lightgreen;
-}
-
 .quest-outer {
   margin: 4%;
 }

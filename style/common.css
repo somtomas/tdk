@@ -42,10 +42,33 @@ body {
   height: 10%;
 }
 
+.percents-absolute {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  font-size: 15vh;
+  color: white;
+}
+
+.graph-absolute {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  width: 33%;
+}
+
 .video-name-absolute {
   position: absolute;
   top: 8%;
   left: 4%;
   cursor: pointer;
   height: 10%;
+}
+
+.vysledok {
+  height: 8%;
 }

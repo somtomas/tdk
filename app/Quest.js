@@ -22,7 +22,6 @@ module.exports = {
 		var  $outer = $("<div></div>").attr("class", "quest");
 		
 		var logic = function() {
-			console.log("hw");
 			$("label", $(this).parent().parent().parent()).removeClass("selected");
 			$(this).parent().addClass("selected");
 		}
@@ -58,8 +57,6 @@ module.exports = {
 		var _this = this;
 	
 		var $qs = document.querySelectorAll(".quest");
-		var wrong = 0;
-		var right = 0;
 		for(var i = 0; i < quests.length; i++) {
 			let obj = quests[i];
 			
@@ -70,13 +67,20 @@ module.exports = {
 			}
 			
 			if($ra.hasClass(RIGHT_ANSWER)) {
-				right++;
 				$("input", $ra.parent().parent().parent()).attr("disabled", "disabled");
 				$("label", $ra.parent().parent().parent()).addClass("disabled");
 				$("h4", $ra.parent().parent().parent()).addClass("disabled");
+				
+				if($ra.parent().parent().parent().not(".answered").length) {
+					$ra.parent().parent().parent().addClass("answered");
+					_this.right++;
+				}
 			} else {
-				wrong++;
-				$ra.parent().addClass("quest-wrong");
+				if($ra.parent().parent().parent().not(".answered").length) {
+					$ra.parent().parent().parent().addClass("answered");
+					_this.wrong++;
+				}
+				//$ra.parent().addClass("quest-wrong");
 			}
 			
 			$("." + RIGHT_ANSWER, $qs[i]).parent().addClass("quest-right");
@@ -85,13 +89,21 @@ module.exports = {
 		if (wrong) {
 			$(".pokracovat a").css("background-image", "url(\"../img/button_cerveny.png\");");
 		}*/
-		
+		if ((_this.wrong + _this.right) === 4 && !$("h4").not(".disabled").length) {
+			//console.log("otazky odosielaju: wrong(" + (_this.commingWrong + _this.wrong) + "), right(" + (_this.commingRight + _this.right) + ")");
+			continueAction(_this.commingWrong + _this.wrong, _this.commingRight + _this.right);
+		}
 	},
 
-	create: function(menuAction, quests, continueAction) {
+	create: function(menuAction, quests, continueAction, wrong, right) {
 		var _this = this;
 		
 		_this.counter = 0;
+		_this.wrong = 0;
+		_this.right = 0;
+		_this.commingWrong = wrong || 0;
+		_this.commingRight = right || 0;
+		//console.log("otazky prijali: wrong(" + wrong + "), right(" + right + ")");
 		
 		var $outer = $("<div></div>").attr("class", "quest-outer");
 	
