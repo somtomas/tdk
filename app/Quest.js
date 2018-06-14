@@ -1,4 +1,5 @@
 var $ = require("jquery");
+var RIGHT_ANSWER = "CONST_RA";
 
 module.exports = {
 
@@ -21,15 +22,32 @@ module.exports = {
 		var  $outer = $("<div></div>").attr("class", "quest");
 		
 		var logic = function() {
-			console.log(this);
-			$("p", $(this).parent()).removeClass("selected");
-			$(this).addClass("selected");
+			console.log("hw");
+			$("label", $(this).parent().parent().parent()).removeClass("selected");
+			$(this).parent().addClass("selected");
 		}
 		
 		$outer.append($("<h4></h4>").text(obj.quest).attr("class", "question"));
+		var scale = "scale(" + window.innerHeight / 600 + ")";
 		
-		for(var val of obj.answers) {
-			let $span = $("<p></p>").text(val).click(logic);
+		for(var i = 0; i < obj.answers.length; i++) {
+		
+			let $input = $("<input/>")
+				.attr("type", "radio")
+				.attr("name", "optradio" + _this.counter)
+				.css("transform", scale)
+				.change(logic);
+		
+			if(obj.right === i) {
+				$input.attr("class", RIGHT_ANSWER);
+			}
+		
+			let val = obj.answers[i];
+			let $span = $("<div></div>")
+				.addClass("radio")
+				.append($("<label></label>")
+					.append($input)
+					.append(val));
 			$outer.append($span);
 		}
 		
@@ -39,29 +57,35 @@ module.exports = {
 	pokracovat: function(quests, continueAction) {
 		var _this = this;
 	
-		var $$qs = document.querySelectorAll(".quest");
+		var $qs = document.querySelectorAll(".quest");
 		var wrong = 0;
 		var right = 0;
 		for(var i = 0; i < quests.length; i++) {
-			console.log(i + ": ");
-			
 			let obj = quests[i];
 			
-			console.log(obj);
+			$ra = $("input", $(".selected", $qs[i]));
 			
-			let $$ps = document.querySelectorAll("p", $$qs[i]);
-			let $r = $($$ps[obj.right]);
+			if(!$ra.length) {
+				continue;
+			}
 			
-			console.log("Vyberieme spravne p-cko: " + $r.html());
-			
-			if($r.hasClass('selected')) {
+			if($ra.hasClass(RIGHT_ANSWER)) {
 				right++;
-				$(".selected", $$qs[i]).addClass("quest-right");
+				$("input", $ra.parent().parent().parent()).attr("disabled", "disabled");
+				$("label", $ra.parent().parent().parent()).addClass("disabled");
+				$("h4", $ra.parent().parent().parent()).addClass("disabled");
 			} else {
 				wrong++;
-				$(".selected", $$qs[i]).addClass("quest-wrong");
+				$ra.parent().addClass("quest-wrong");
 			}
+			
+			$("." + RIGHT_ANSWER, $qs[i]).parent().addClass("quest-right");
 		}
+		/*
+		if (wrong) {
+			$(".pokracovat a").css("background-image", "url(\"../img/button_cerveny.png\");");
+		}*/
+		
 	},
 
 	create: function(menuAction, quests, continueAction) {
@@ -89,6 +113,26 @@ module.exports = {
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);
 		
+		/*
+		let img = new Image();
+		img.onload = function() {
+		
+			let $a = $("<a></a>");
+			let pomer = this.height / 2 / (window.innerHeight / 10);
+			let w = this.width / pomer + "px";
+			let $continue = $("<div></div>").attr("class", "pokracovat").css("width", w).click(function() { _this.pokracovat(quests, continueAction);})
+				.append($a);
+			let futurePos = "0 " + (this.height / pomer / 2) + "px";
+			$a.hover(function() {
+				$(this).css("background-position", futurePos);
+			}, function() {
+				 $(this).css("background-position", "0 0");
+			});
+				//background-position
+			$outer.append($continue);
+		}
+		img.src = 'img/button_pokracovat_modry.png';
+		*/
 		return $outer;
 	}
 }

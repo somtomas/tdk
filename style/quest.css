@@ -1,4 +1,4 @@
-.cislo {
+﻿.cislo {
   width: 80%;
 }
 
@@ -7,25 +7,38 @@
   color: white;
 }
 
-.quest p {
+.quest label {
   padding: 0;
   margin: 0;
   color: white;
-  font-size: 2.8vh;
+  font-size: 2.7vh;
 }
 
-.quest p:hover {
+.quest input {
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.quest label:hover {
   color: rgb(220,223,228);
   cursor: pointer;
 }
 
-.quest p.selected {
+.quest label.selected {
   color: rgb(231,207,80);
 }
 
-.quest p.selected:hover {
+.quest label.selected:hover {
   color: rgb(196,172,35);
   cursor: pointer;
+}
+
+.quest label.disabled , .quest h4.disabled {
+  color: rgb(220,223,228);
+}
+
+.quest label.disabled.selected {
+  color: lightgreen;
 }
 
 .quest-outer {
