@@ -14,7 +14,7 @@
     "application"
   ],
   "author": "Tomas Holubek",
-  "license": "Private",
+  "license": "cc0-1.0",
   "devDependencies": {
     "electron": "^1.8.7",
     "electron-packager": "^12.1.0"
