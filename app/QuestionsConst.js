@@ -3,14 +3,6 @@ module.exports = {
 	// - - - - - - - - - -  P1000  - - - - - - - - - - 
 	//Část výrobního procesu 1
 	quests_1_1: [{
-			quest: "Z jakých hlavních částí se skládá výrobny zařízení P1000 / x?",
-			answers: [
-				"a)	lisovací stanice, brusná stanice, zásobník materiálu, ovládání automatu, čistící stanice, manipulační vozík",
-				"b)	lisovací stanice, brusná stanice, čistící stanice, nakládací automat, ovládací panel, odsávání",
-				"c)	plnička materiálu, lisovací stanice, brusná stanice, karusel, nakládací automat, odsávání"
-			],
-		right: 1
-	},{
 			quest: "Jak se jmenuje část stroje, která plní matrici materiálem?",
 			answers: [
 				"a)	svod materiálu",
@@ -19,13 +11,13 @@ module.exports = {
 			],
 		right: 2
 	},{
-			quest: "Jak se jmenují 3 hlavní parametry pro nastavení lisovacího zařízení:",
+			quest: "Z jakých hlavních částí se skládá výrobny zařízení P1000 / x?",
 			answers: [
-				"a)	tloušťka, zóna, váha",
-				"b)	tloušťka, tlak, otáčky",
-				"c)	zóna, váha, tlak"
+				"a)	lisovací stanice, brusná stanice, zásobník materiálu, ovládání automatu, čistící stanice, manipulační vozík",
+				"b)	lisovací stanice, brusná stanice, čistící stanice, nakládací automat, ovládací panel, odsávání",
+				"c)	plnička materiálu, lisovací stanice, brusná stanice, karusel, nakládací automat, odsávání"
 			],
-		right: 0
+		right: 1
 	},{
 			quest: "Pomocí čeho se nastavuje velikost horní a spodní brusné fáze?",
 			answers: [
@@ -34,6 +26,14 @@ module.exports = {
 				"c)	horní brusný kotouč – napínací řemen+ vymezovací plech s gumičkou, dolní brusný kotouč – regulační kolo"
 			],
 		right: 1
+	},{
+			quest: "Jak se jmenují 3 hlavní parametry pro nastavení lisovacího zařízení:",
+			answers: [
+				"a)	tloušťka, zóna, váha",
+				"b)	tloušťka, tlak, otáčky",
+				"c)	zóna, váha, tlak"
+			],
+		right: 0
 	}],
 
 	//Část výrobního procesu 2
@@ -54,14 +54,6 @@ module.exports = {
 			],
 		right: 2
 	},{
-			quest: "Kolik nakládacích Lísek je uložených v nakládacím automatu?",
-			answers: [
-				"a)	6",
-				"b)	9",
-				"c)	12"
-			],
-		right: 1
-	},{
 			quest: "K čemu slouží zirkon?",
 			answers: [
 				"a)	jako čistící materiál pro vakuové přísavky,",
@@ -69,6 +61,14 @@ module.exports = {
 				"c)	zirkonem jsou díly posypané, aby se předešlo jejich spékání na další operaci"
 			],
 		right: 2
+	},{
+			quest: "Kolik nakládacích Lísek je uložených v nakládacím automatu?",
+			answers: [
+				"a)	6",
+				"b)	9",
+				"c)	12"
+			],
+		right: 1
 	}],
 
 	//Proces měření
@@ -108,7 +108,7 @@ module.exports = {
 
 	//Chyby při zařízení
 	quests_1_4: [{
-			quest: "K čemu dochází při zaseknutí materiálu pod senzorem před nakládacím automatem?",
+			quest: "K čemu dochází při zaseknutí materiálu pod senzorem<br>před nakládacím automatem?",
 			answers: [
 				"a)	stroj se zastaví, dokud operátor dráhu nevyčistí",
 				"b)	stroj pracuje dál a vzniká nebezpečí tvorby zmetků, protože díly po uvolnění dráhy padají z velké výšky",
@@ -135,7 +135,7 @@ module.exports = {
 			quest: "Co je jednou z podstat lisování, aby nedošlo k tvorbě zmetků?",
 			answers: [
 				"a)	operátor musí každou hodinu měnit nastavení stroje",
-				"b)	materiál musí být během celého průběhu lisování pod tlakem obou razníků",
+				"b)	materiál musí být během celého průběhu lisování pod tlakem<br>obou razníků",
 				"c)	kontrola každého kusu samostatně"
 			],
 		right: 1
@@ -186,14 +186,6 @@ module.exports = {
 
 	//Část výrobního procesu 2
 	quests_2_2: [{
-			quest: "Jaká je úloha optického senzoru v nakládacím automatu?",
-			answers: [
-				"a)	snímaní výlisku v automatu a odesílaní signálu pro nakládací hlavu po dosáhnutí požadovaného počtu kusů",
-				"b)	optická kontrola poškozeni výlisků",
-				"c)	optický sensor se na stroji nenachází"
-			],
-		right: 0
-	},{
 			quest: "Na co slouží posyp výlisku zirkonem?",
 			answers: [
 				"a)	vymezení výstavby",
@@ -201,6 +193,14 @@ module.exports = {
 				"c)	eliminace spékaní při procesu vypalování"
 			],
 		right: 2
+	},{
+			quest: "Jaká je úloha optického senzoru v nakládacím automatu?",
+			answers: [
+				"a)	snímaní výlisku v automatu a odesílaní signálu pro nakládací hlavu po dosáhnutí požadovaného počtu kusů",
+				"b)	optická kontrola poškozeni výlisků",
+				"c)	optický sensor se na stroji nenachází"
+			],
+		right: 0
 	},{
 			quest: "Kolik vypalovacích desek je uloženo v nakládacím automatu?",
 			answers: [
@@ -349,14 +349,6 @@ module.exports = {
 			],
 		right: 2
 	},{
-			quest: "Jak se ukládá pomocný materiál Alox?",
-			answers: [
-				"a)	podle zadáni v LOS karte",
-				"b)	libovolně",
-				"c)	uložení aloxu určí směnový mistr"
-			],
-		right: 0
-	},{
 			quest: "Co je důležité při lepení komínku?",
 			answers: [
 				"a)	zalepit všecky strany rovnoměrné",
@@ -364,10 +356,26 @@ module.exports = {
 				"c)	zalepit celou jednu stranu a ostatní strany zalepit len v oblasti rohů"
 			],
 		right: 1
+	},{
+			quest: "Jak se ukládá pomocný materiál Alox?",
+			answers: [
+				"a)	podle zadáni v LOS karte",
+				"b)	libovolně",
+				"c)	uložení aloxu určí směnový mistr"
+			],
+		right: 0
 	}],
 
 	//Proces měření
 	quests_3_3: [{
+			quest: "Jako se označují díly, které splňují požadovanou kvalitu?",
+			answers: [
+				"a)	SDP (splněné definované parametry)",
+				"b)	NOK",
+				"c)	OK"
+			],
+		right: 2
+	},{
 			quest: "Jak často se provádí SPC kontrola?",
 			answers: [
 				"a)	každých 30 minut",
@@ -384,14 +392,6 @@ module.exports = {
 			],
 		right: 0
 	},{
-			quest: "Jako se označují díly, které splňují požadovanou kvalitu?",
-			answers: [
-				"a)	SDP (splněné definované parametry)",
-				"b)	NOK",
-				"c)	OK"
-			],
-		right: 2
-	},{
 			quest: "K jakým optickým chybám výlisků dochází na výrobním zařízení EP50?",
 			answers: [
 				"a)	trhliny, prohnutí materiálu, úlomky, škrábance, nálisky, otřepy",
@@ -403,6 +403,14 @@ module.exports = {
 
 	//Chyby při zařízení
 	quests_3_4: [{
+			quest: "Z jakých části se skládá posýpací stanice zirkonem?",
+			answers: [
+				"a)	zásobník zirkonu, vibrační jednotka",
+				"b)	zásobník zirkonu, zvod zirkonu, filtrační mřížka",
+				"c)	zásobník zirkonu, filtrační mřížkae"
+			],
+		right: 0
+	},{
 			quest: "K jakým nejčastějším chybám dochází při výrobním procese?",
 			answers: [
 				"a)	ucpaní stanice se zirkonem, zaschnutí lepící stanice, absence pomocného materiálu Aloxu, zle nastavený dopravníkový pás, zle zarovnané díly",
@@ -418,14 +426,6 @@ module.exports = {
 				"c)	nic se nestane"
 			],
 		right: 1
-	},{
-			quest: "Z jakých části se skládá posýpací stanice zirkonem?",
-			answers: [
-				"a)	zásobník zirkonu, vibrační jednotka",
-				"b)	zásobník zirkonu, zvod zirkonu, filtrační mřížka",
-				"c)	zásobník zirkonu, filtrační mřížkae"
-			],
-		right: 0
 	},{
 			quest: "Co se musí udělat po identifikaci neshody?",
 			answers: [

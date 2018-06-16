@@ -26,7 +26,7 @@ module.exports = {
 			$(this).parent().addClass("selected");
 		}
 		
-		$outer.append($("<h4></h4>").text(obj.quest).attr("class", "question"));
+		$outer.append($("<h4></h4>").html(obj.quest).attr("class", "question"));
 		var scale = "scale(" + window.innerHeight / 600 + ")";
 		
 		for(var i = 0; i < obj.answers.length; i++) {
