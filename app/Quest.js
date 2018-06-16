@@ -90,11 +90,19 @@ module.exports = {
 			$(".pokracovat a").css("background-image", "url(\"../img/button_cerveny.png\");");
 		}*/
 		if ((_this.wrong + _this.right) === 4 && !$("h4").not(".disabled").length) {
+		
+			if (_this.right === 4 && $(".pokracovat").attr("src") !== "img/button_zeleny.png") {
+				$(".pokracovat").attr("src", "img/button_zeleny.png");
+			} else {
+				continueAction(_this.commingWrong + _this.wrong, _this.commingRight + _this.right);
+			}
+		
 			//console.log("otazky odosielaju: wrong(" + (_this.commingWrong + _this.wrong) + "), right(" + (_this.commingRight + _this.right) + ")");
-			continueAction(_this.commingWrong + _this.wrong, _this.commingRight + _this.right);
-		} else {
+		} else if (_this.wrong > 0) {
 			let $w = $(".pokracovat");
-			$w.css({ "width": $w.width() + "px", "height": "" }).attr("src", "img/button_cerveny.png");
+			$w.css("width", $w.width() + "px").attr("src", "img/button_cerveny.png");
+			$w.addClass("pokracovat-cerveny");
+			$w.removeClass("pokracovat");
 		}
 	},
 
@@ -122,7 +130,7 @@ module.exports = {
 			
 			$outer.append($row);
 		}
-		let $continue = $("<img>").attr("src", "img/button_pokracovat.png").attr("class", "pokracovat").click(function() { _this.pokracovat(quests, continueAction);});
+		let $continue = $("<img>").attr("src", "img/button_modry.png").attr("class", "pokracovat").click(function() { _this.pokracovat(quests, continueAction);});
 		$outer.append($continue);
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);

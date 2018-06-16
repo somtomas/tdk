@@ -1,5 +1,4 @@
 var $ = require("jquery");
-var button = require("./Button.js");
 
 module.exports = {
 
