@@ -10,7 +10,7 @@ module.exports = {
 		_this.name = name;
 	},
 
-	html: function(menuAction, questAction, wrong, right) {
+	html: function(menuAction, questAction, wrong, right, name) {
 		var _this = this;
 		
 		var $outer = $("<div></div>").attr("class", "video-player-outer");
@@ -36,16 +36,16 @@ module.exports = {
 				});
 				
 		$video.append(
-					$("<source></source>")
+			$("<source></source>")
 						.attr("src", _this.src)
 						.attr("type", _this.type))
 				.attr("class", "video-player")
 				.click(function() {
 					if (this.paused == false) {
-						$(".video-play-absolute").attr("src", "img/play.png");
+						//$(".video-play-absolute").attr("src", "img/play.png");
 						this.pause();
 					} else {
-						$(".video-play-absolute").attr("src", "img/stop.png");
+						//$(".video-play-absolute").attr("src", "img/stop.png");
 						this.play();
 					}
 				});
@@ -75,13 +75,12 @@ module.exports = {
 		
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
 		$outer.append($menu);
-		let $name = $("<img>").attr("src", "img/nazev_EP50.png").attr("class", "video-name-absolute");
+		
+		let $name = $("<img>").attr("src", "img/nazev_" + name + ".png").attr("class", "video-name-absolute");
 		$outer.append($name);
 		//$outer.append($play);
 		
-		//console.log("video prijalo: wrong(" + wrong + "), right(" + right + ")");
 		let $continue = $("<img>").attr("src", "img/button_modry.png").attr("class", "pokracovat").click(function() {
-			//console.log("video odosiela: wrong(" + wrong + "), right(" + right + ")");
 			questAction(wrong, right);
 		});
 		$outer.append($continue);

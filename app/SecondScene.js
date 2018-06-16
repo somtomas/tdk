@@ -9,7 +9,7 @@ module.exports = {
 		_this.data = data;
 	},
 
-	html: function(first, second, third) {
+	html: function() {
 		var _this = this;
 		
 		var $outer = $("<div></div>").attr("class", "video-outer");
@@ -62,11 +62,11 @@ module.exports = {
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[2])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[1])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")

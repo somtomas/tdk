@@ -80,7 +80,7 @@ module.exports = {
 					$ra.parent().parent().parent().addClass("answered");
 					_this.wrong++;
 				}
-				//$ra.parent().addClass("quest-wrong");
+				$ra.parent().addClass("quest-wrong");
 			}
 			
 			$("." + RIGHT_ANSWER, $qs[i]).parent().addClass("quest-right");
@@ -92,6 +92,9 @@ module.exports = {
 		if ((_this.wrong + _this.right) === 4 && !$("h4").not(".disabled").length) {
 			//console.log("otazky odosielaju: wrong(" + (_this.commingWrong + _this.wrong) + "), right(" + (_this.commingRight + _this.right) + ")");
 			continueAction(_this.commingWrong + _this.wrong, _this.commingRight + _this.right);
+		} else {
+			let $w = $(".pokracovat");
+			$w.css({ "width": $w.width() + "px", "height": "" }).attr("src", "img/button_cerveny.png");
 		}
 	},
 
@@ -103,7 +106,6 @@ module.exports = {
 		_this.right = 0;
 		_this.commingWrong = wrong || 0;
 		_this.commingRight = right || 0;
-		//console.log("otazky prijali: wrong(" + wrong + "), right(" + right + ")");
 		
 		var $outer = $("<div></div>").attr("class", "quest-outer");
 	

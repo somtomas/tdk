@@ -3,11 +3,13 @@
 }
 
 .quest h4 {
+  font-family: "Roboto-Bold", Verdana, Tahoma;
   font-size: 4vh;
   color: white;
 }
 
 .quest label {
+  font-family: "Roboto-Light", Verdana, Tahoma;
   padding: 0;
   margin: 0;
   color: white;
@@ -43,6 +45,7 @@
 
 .quest-wrong {
   color: rgb(232, 82, 82) !important;
+  text-decoration: line-through;
 }
 
 .quest-right {

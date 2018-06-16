@@ -7,6 +7,16 @@ body {
   background-size: cover;
 }
 
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("../font/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("../font/Roboto-Bold.ttf") format("truetype");
+}
+
 #app {
   width: 100%;
 }
@@ -43,6 +53,7 @@ body {
 }
 
 .percents-absolute {
+  font-family: "Roboto-Bold", Verdana, Tahoma;
   position: fixed; /* or absolute */
   top: 50%;
   left: 50%;

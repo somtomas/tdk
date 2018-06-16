@@ -7,7 +7,7 @@ module.exports = {
 		
 		var $outer = $("<div></div>").attr("class", "quest-outer");
 		
-		let $continue = $("<img>").attr("src", "img/dalsi.png").attr("class", "pokracovat vysledok").click(click);
+		let $continue = $("<img>").attr("src", "img/dalsi.png").attr("class", "pokracovat").click(click);
 		$outer.append($continue);
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu vysledok").click(click);
 		$outer.append($menu);
