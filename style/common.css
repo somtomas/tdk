@@ -90,3 +90,11 @@ body {
 .vysledok {
   height: 8%;
 }
+
+.xko {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  cursor: pointer;
+  height: 5%;
+}

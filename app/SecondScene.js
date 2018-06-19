@@ -1,4 +1,5 @@
 var $ = require("jquery");
+const remote = require('electron').remote;
 
 module.exports = {
 
@@ -18,11 +19,11 @@ module.exports = {
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
-						.html($("<img>").attr("src", "img/tpa6_nahlad.png").attr("class", "video-png").click(_this.data[2])))
+						.html($("<img>").attr("src", "img/p1000_nahlad.png").attr("class", "video-png").click(_this.data[1])))
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
-						.html($("<img>").attr("src", "img/p1000_nahlad.png").attr("class", "video-png").click(_this.data[1])))
+						.html($("<img>").attr("src", "img/tpa6_nahlad.png").attr("class", "video-png").click(_this.data[2])))
 				.append(
 					$("<div></div>")
 						.attr("class", "col-sm-4 video-cell")
@@ -61,17 +62,22 @@ module.exports = {
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[2])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[1])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
-							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[1])))
+							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[2])))
 					.append(
 						$("<div></div>")
 							.attr("class", "col-sm-4 video-cell")
 							.html($("<img>").attr("src", "img/spustit_plne.png").attr("class", "spustit-png").click(_this.data[0]))));
 		
 		$outer.append($btnrow);
+		
+		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
+			remote.getCurrentWindow().close()
+		});
+		$outer.append($xko);
 		
 		return $outer;
 	}

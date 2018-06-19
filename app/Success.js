@@ -1,4 +1,5 @@
 var $ = require("jquery");
+const remote = require('electron').remote;
 
 module.exports = {
 
@@ -22,6 +23,11 @@ module.exports = {
 		$outer.append($graph);
 		let $percents = $("<div></div>").text(parseInt(right/(wrong+right)*100) + "%").addClass("percents-absolute");
 		$outer.append($percents);
+		
+		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
+			remote.getCurrentWindow().close()
+		});
+		$outer.append($xko);
 	
 		return $outer;
 	}

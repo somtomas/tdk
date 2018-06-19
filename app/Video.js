@@ -1,4 +1,5 @@
 var $ = require("jquery");
+const remote = require('electron').remote;
 
 module.exports = {
 
@@ -84,6 +85,11 @@ module.exports = {
 			questAction(wrong, right);
 		});
 		$outer.append($continue);
+		
+		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
+			remote.getCurrentWindow().close()
+		});
+		$outer.append($xko);
 		
 		return $outer;
 	}

@@ -1,5 +1,6 @@
 var $ = require("jquery");
-var RIGHT_ANSWER = "CONST_RA";
+const RIGHT_ANSWER = "CONST_RA";
+const remote = require('electron').remote;
 
 module.exports = {
 
@@ -155,6 +156,12 @@ module.exports = {
 		}
 		img.src = 'img/button_pokracovat_modry.png';
 		*/
+		
+		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
+			remote.getCurrentWindow().close()
+		});
+		$outer.append($xko);
+		
 		return $outer;
 	}
 }
