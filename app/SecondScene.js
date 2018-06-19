@@ -1,5 +1,6 @@
 var $ = require("jquery");
 const remote = require('electron').remote;
+var closeModal = require("./CloseModal.js")
 
 module.exports = {
 
@@ -31,30 +32,11 @@ module.exports = {
 		
 		$outer.append($videorow);
 		
+		/*
 		var sh = window.innerHeight;
 		let nh = parseInt(sh / 10);
-		let bh = parseInt(sh / 5);
+		let bh = parseInt(sh / 5);*/
 		
-		/*
-		let $namerow = $("<div></div>")
-		        .attr("class", "name-row")
-				.append($("<div></div>")
-					.attr("class", "row")
-					.append(
-						$("<div></div>")
-							.attr("class", "col-sm-4 name-cell")
-							.html($("<img>").attr("src", "img/nazev_tpa6.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0])))
-					.append(
-						$("<div></div>")
-							.attr("class", "col-sm-4 name-cell")
-							.html($("<img>").attr("src", "img/nazev_p1000.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0])))
-					.append(
-						$("<div></div>")
-							.attr("class", "col-sm-4 name-cell")
-							.html($("<img>").attr("src", "img/nazev_EP50.png").attr("class", "name-png").css("height", nh + "px").click(_this.data[0]))));
-		
-		$outer.append($namerow);*/
-	
 		let $btnrow = $("<div></div>")
 		        .attr("class", "video-row")
 				.append($("<div></div>")
@@ -74,11 +56,8 @@ module.exports = {
 		
 		$outer.append($btnrow);
 		
-		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
-			remote.getCurrentWindow().close()
-		});
-		$outer.append($xko);
-		
+		$outer.append(closeModal.html());
+	
 		return $outer;
 	}
 }

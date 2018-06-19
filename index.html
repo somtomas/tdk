@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/common.css">
     <link rel="stylesheet" href="style/quest.css">
+    <link rel="stylesheet" href="style/modal.css">
 
     <title>TDK</title>
 	
@@ -76,7 +77,6 @@
 	  
 	  
 	</style>
-	
 	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -85,6 +85,23 @@
   
     <div id="app">
 	  <img id="landing" src="img/mainscreen.png"/>
+	</div>
+	
+	
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		<div class="row">
+		  <div class="col-sm-12"><span id="modalHeader"></span></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-6"><img id="closeApp" src="img/ano.png"/></div>
+		  <div class="col-sm-6"><img id="cancelApp" src="img/ne.png"/></div>
+		</div>
+	  </div>
+
 	</div>
     
     <!--<h1>Hello World!</h1>-->

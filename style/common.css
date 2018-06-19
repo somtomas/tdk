@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url(../img/pozadie-01.png);
+  background-color: rgb(87, 94, 107);
   background-repeat: no-repeat;
   background-size: cover;
 }

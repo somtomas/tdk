@@ -1,5 +1,6 @@
-var $ = require("jquery");
-const remote = require('electron').remote;
+﻿var $ = require("jquery");
+var closeModal = require("./CloseModal.js")
+var modal = require("./Modal.js")
 
 module.exports = {
 
@@ -74,7 +75,9 @@ module.exports = {
 		img.src = 'img/button_pokracovat_modry.png';
 		*/
 		
-		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(menuAction);
+		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(function() {
+			modal.show("CHCETE UKONČIT TESTOVÁNI?", menuAction);
+		});
 		$outer.append($menu);
 		
 		let $name = $("<img>").attr("src", "img/nazev_" + name + ".png").attr("class", "video-name-absolute");
@@ -86,10 +89,7 @@ module.exports = {
 		});
 		$outer.append($continue);
 		
-		let $xko = $("<img>").attr("src", "img/xko.png").attr("class", "xko").on('click', e => {
-			remote.getCurrentWindow().close()
-		});
-		$outer.append($xko);
+		$outer.append(closeModal.html());
 		
 		return $outer;
 	}
