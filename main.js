@@ -14,11 +14,11 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 440,
+    width: 864,
+    height: 900,
     frame: false,
-    resizable: false,
-	fullscreen: true,
+    resizable: true,
+	fullscreen: false,
 	icon: path.join(__dirname, 'icons/png/64x64.png')
   })
 

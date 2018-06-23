@@ -15,7 +15,7 @@ module.exports = {
 	
 	// returns bootstrap cell with specific bootstrap width
 	cell: function(bootstrapWidth) {
-		return $("<div></div>").attr("class", "col-md-" + bootstrapWidth);
+		return $("<div></div>").attr("class", "col-lg-" + bootstrapWidth);
 	},
 	
 	// return question with choices and logic
@@ -29,7 +29,7 @@ module.exports = {
 		}
 		
 		$outer.append($("<h4></h4>").html(obj.quest).attr("class", "question"));
-		var scale = "scale(" + window.innerHeight / 600 + ")";
+		var scale = "scale(" + (window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight) / 600 + ")";
 		
 		for(var i = 0; i < obj.answers.length; i++) {
 		
@@ -38,6 +38,11 @@ module.exports = {
 				.attr("name", "optradio" + _this.counter)
 				.css("transform", scale)
 				.change(logic);
+				
+			$(window).resize(function() {
+				let scaleInner = "scale(" + (window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight) / 600 + ")";
+				$("input[type=radio]").css("transform", scaleInner)
+			});
 		
 			if(obj.right === i) {
 				$input.attr("class", RIGHT_ANSWER);
@@ -108,7 +113,7 @@ module.exports = {
 		}
 	},
 
-	create: function(menuAction, quests, continueAction, wrong, right) {
+	create: function(menuAction, quests, continueAction, wrong, right, name) {
 		var _this = this;
 		
 		_this.counter = 0;
@@ -119,11 +124,28 @@ module.exports = {
 		
 		var $outer = $("<div></div>").attr("class", "quest-outer");
 	
-		for(var val of quests) {
-			let $row = $("<div></div>").attr("class", "row");
+		for (var val of quests) {
+		
+			let $row = $("<div></div>").attr("class", "row hidden-img");
+		
+			if (window.innerHeight > window.innerWidth) {
+				$row.show();
+			} else {
+				$row.hide();
+			}
+			
+			let $img = _this.img();
 		
 			let $cell = _this.cell(2);
-			$cell.append(_this.img());
+			$cell.append($img);
+			$row.append($cell);
+			
+			$outer.append($row);
+			
+			$row = $("<div></div>").attr("class", "row");
+		
+			$cell = _this.cell(2);
+			$cell.append($img.clone(true, true));
 			$row.append($cell);
 			
 			$cell = _this.cell(10);
@@ -138,6 +160,20 @@ module.exports = {
 			modal.show("CHCETE UKONČIT TESTOVÁNI?", menuAction);
 		});
 		$outer.append($menu);
+		
+		$(window).resize(function() {
+			if (window.innerHeight > window.innerWidth) {
+				$(".hidden-img").show();
+			} else {
+				$(".hidden-img").hide();
+			}
+		});
+		
+		if (window.innerHeight > window.innerWidth) {
+			$(".hidden-img").show();
+		} else {
+			$(".hidden-img").hide();
+		}
 		
 		/*
 		let img = new Image();
@@ -158,8 +194,10 @@ module.exports = {
 			$outer.append($continue);
 		}
 		img.src = 'img/button_pokracovat_modry.png';
-		*/
 		
+		let $name = $("<img>").attr("src", "img/nazev_" + name + ".png").attr("class", "video-name-absolute quest-name");
+		$outer.append($name);
+		*/
 		
 		$outer.append(closeModal.html());
 		

@@ -42,6 +42,7 @@ module.exports = {
 						.attr("src", _this.src)
 						.attr("type", _this.type))
 				.attr("class", "video-player")
+				.addClass("centered")
 				.click(function() {
 					if (this.paused == false) {
 						//$(".video-play-absolute").attr("src", "img/play.png");

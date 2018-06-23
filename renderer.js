@@ -33,7 +33,7 @@ var createSequencePart = function(questions, continuePoint, videoSrc, name) {
 	// create question screen
 	let q = function(wrong, right) {
 		$("#app").html("");
-		$("#app").append(quest.create(toSecond, questions, continuePoint, wrong, right));
+		$("#app").append(quest.create(toSecond, questions, continuePoint, wrong, right, name));
 	};
 
 	// creates video screen and fill if with question event

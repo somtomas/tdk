@@ -23,21 +23,21 @@ body {
 
 #landing {
   width: 100%;
-  height: 100%;
 }
 
 .pokracovat {
   position: absolute;
-  bottom: 8%;
-  right: 4%;
+  bottom: 50px;
+  right: 50px;
   cursor: pointer;
   height: 10%;
+  max-height: 50px;
 }
 
 .pokracovat-cerveny {
   position: absolute;
-  bottom: 8%;
-  right: 4%;
+  bottom: 50px;
+  right: 50px;
   cursor: pointer;
 }
 
@@ -53,10 +53,11 @@ body {
 
 .button-menu {
   position: absolute;
-  top: 8%;
-  right: 4%;
+  top: 50px;
+  right: 50px;
   cursor: pointer;
   height: 8%;
+  max-height: 50px;
 }
 
 .percents-absolute {
@@ -66,29 +67,63 @@ body {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-  font-size: 15vh;
+  font-size: 120px;
   color: white;
 }
 
 .graph-absolute {
+  width: 33%;
+  min-width: 450px;
+}
+
+.gratulujeme-resp {
+  display: none;
   position: fixed; /* or absolute */
-  top: 50%;
+  top: 22%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-  width: 33%;
+  width: 60%;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .button-dalsi {
+    bottom: 15%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+
+  .gratulujeme {
+    display: none;
+  }
+  
+  .gratulujeme-resp, .button-dalsi {
+    display: block;
+  }
+  
+  .percents-absolute {
+    font-size: 80px;
+  }
+
+  .graph-absolute {
+    width: 33%;
+    min-width: 350px;
+  }
 }
 
 .video-name-absolute {
   position: absolute;
-  top: 8%;
-  left: 4%;
+  top: 50px;
+  left: 50px;
   cursor: pointer;
   height: 8%;
+  max-height: 50px;
 }
 
 .vysledok {
-  height: 8%;
+  height: 50px;
 }
 
 .xko {
@@ -97,4 +132,17 @@ body {
   right: 0%;
   cursor: pointer;
   height: 5%;
+  max-height: 25px;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.land-image {
+  top: 55%;
 }

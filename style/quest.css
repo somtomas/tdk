@@ -1,10 +1,10 @@
 ﻿.cislo {
-  width: 80%;
+  width: 180px;
 }
 
 .quest h4 {
   font-family: "Roboto-Bold", Verdana, Tahoma;
-  font-size: 4vh;
+  font-size: 32px;
   color: white;
 }
 
@@ -13,7 +13,7 @@
   padding: 0;
   margin: 0;
   color: white;
-  font-size: 2.7vh;
+  font-size: 24px;
 }
 
 .quest input {
@@ -40,7 +40,7 @@
 }
 
 .quest-outer {
-  margin: 4%;
+  margin: 50px;
 }
 
 .quest-wrong {
@@ -50,4 +50,61 @@
 
 .quest-right {
   color: rgb(154, 201, 71) !important;
+}
+
+.quest-name {
+  display: none;
+}
+
+@media screen and (max-width: 1444px) {
+
+  .cislo {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+
+  .cislo {
+    width: 125px;
+  }
+ 
+ .quest h4 {
+    font-size: 24px;
+  }
+  
+  .quest label {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .quest h4 {
+    font-size: 20px;
+  }
+
+  .quest label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .quest-name {
+    display: block;
+  }
+
+  .cislo {
+    display: none;
+  }
+  /*
+  .quest-outer {
+    margin-top: 140px;
+  }*/
+
+  .hidden-img .cislo {
+    display: block;
+    margin: 0 0 0 -13px;
+  }
 }
