@@ -4,6 +4,13 @@ var modal = require("./Modal.js")
 
 module.exports = {
 
+	/**
+	 * Set video attributes to instance
+	 *
+	 * @param src Video source
+	 * @param type Video type - eg. mp4
+	 * @param name Video name
+	 */
 	setSrc: function(src, type, name) {
 		var _this = this;
 		
@@ -12,31 +19,29 @@ module.exports = {
 		_this.name = name;
 	},
 
+	/** 
+	 * Creates video screen with action buttons.
+	 * Handling context of right and wrong answers from previous questionaires.
+	 *
+	 * @param menuAction Function delegate - call on menu button click
+	 * @param questAction Function delegate - call on Continue button click
+	 * @param right Context of all right answered questions from previous questionaires
+	 * @param wrong Context of all wrong answered questions from previous questionaires
+	 * @param name Image filename suffix
+	 * @return jQuery object
+	 */
 	html: function(menuAction, questAction, wrong, right, name) {
+		
+		// method global instance context 
 		var _this = this;
 		
+		// outer div
 		var $outer = $("<div></div>").attr("class", "video-player-outer");
-		
-		//let $name = $("<p></p>").attr("class", "video-player-name").text(_this.name);
-		//$outer.append($name);
 	
+		// video tag with controls
 		let $video = $("<video></video>").attr("controls", "true");
-		let $play = $("<img>").attr("src", "img/play.png").attr("class", "video-play-absolute")
-				.click(function() {
-					let $v = $video[0];
-					/*console.log($v);
-					console.log($video[0]);
-					console.log($video.html());
-					*/
-					if ($v.paused == false) {
-						$(".video-play-absolute").attr("src", "img/play.png");
-						$v.pause();
-					} else {
-						$(".video-play-absolute").attr("src", "img/stop.png");
-						$v.play();
-					}
-				});
-				
+		
+		// append source file to video from instance context
 		$video.append(
 			$("<source></source>")
 						.attr("src", _this.src)
@@ -44,54 +49,42 @@ module.exports = {
 				.attr("class", "video-player")
 				.addClass("centered")
 				.click(function() {
+				
+					// play / pause video on click on it
 					if (this.paused == false) {
-						//$(".video-play-absolute").attr("src", "img/play.png");
 						this.pause();
 					} else {
-						//$(".video-play-absolute").attr("src", "img/stop.png");
 						this.play();
 					}
 				});
 		
+		// append video to outer div
 		$outer.append($video);
 		
-		/*
-		let img = new Image();
-		img.onload = function() {
-		
-			let $a = $("<a></a>");
-			let pomer = this.height / 2 / (window.innerHeight / 10);
-			let w = this.width / pomer + "px";
-			let $continue = $("<div></div>").attr("class", "pokracovat").css("width", w).click(questAction)
-				.append($a);
-			let futurePos = "0 " + (this.height / pomer / 2) + "px";
-			$a.hover(function() {
-				$(this).css("background-position", futurePos);
-			}, function() {
-				 $(this).css("background-position", "0 0");
-			});
-				//background-position
-			$outer.append($continue);
-		}
-		img.src = 'img/button_pokracovat_modry.png';
-		*/
-		
+		// menu action button -> would you like to finish testing?
 		let $menu = $("<img>").attr("src", "img/button_menu.png").attr("class", "button-menu").click(function() {
 			modal.show("CHCETE UKONČIT TESTOVÁNI?", menuAction);
 		});
+		
+		// append menu button with action to outer div
 		$outer.append($menu);
 		
+		// video name + append to outer div
 		let $name = $("<img>").attr("src", "img/nazev_" + name + ".png").attr("class", "video-name-absolute");
 		$outer.append($name);
-		//$outer.append($play);
 		
+		// continue to questions button
 		let $continue = $("<img>").attr("src", "img/button_modry.png").attr("class", "pokracovat").click(function() {
 			questAction(wrong, right);
 		});
+		
+		// append continue question to outer div
 		$outer.append($continue);
 		
+		// append close modal window for application exit
 		$outer.append(closeModal.html());
 		
+		// return jQuery object
 		return $outer;
 	}
 }

@@ -1,11 +1,13 @@
 {
   "name": "TDK",
+  "productName": "TDK",
   "version": "1.0.0",
   "description": "Training application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-win": "electron-packager . TDK --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icon/win/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"TDK\""
+    "package-win": "electron-packager . TDK_0 --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icon/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"TDK\"",
+    "create-installer-win": "node installers/windows/createinstaller.js"
   },
   "keywords": [
     "Electron",
@@ -13,11 +15,12 @@
     "training",
     "application"
   ],
-  "author": "Tomas Holubek",
+  "author": "TDK",
   "license": "Private",
   "devDependencies": {
     "electron": "^1.8.7",
-    "electron-packager": "^12.1.0"
+    "electron-packager": "^12.1.0",
+    "electron-winstaller": "^2.6.4"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",

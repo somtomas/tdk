@@ -90,16 +90,9 @@ secondScene.setData([
 
 
 
-
+// intro image click cause menu screen
 $("#landing").click(function() {
 
+	// menu screen
 	toSecond();
-	
-		//$("<div></div>").html("<video controls><source src= type=video/mp4></video>")
 });
-/*
-var interval = setInterval(function() {
-	alert("hello " + $("#landing").attr("src"));
-	clearInterval(interval);
-}, 5000);
-*/

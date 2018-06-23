@@ -1,3 +1,10 @@
+ //handle setupevents as quickly as possible
+const setupEvents = require('./installers/setupEvents')
+if (setupEvents.handleSquirrelEvent()) {
+	// squirrel event handled and app will exit in 1000ms, so don't do anything else
+	return;
+}
+ 
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -14,12 +21,12 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 864,
-    height: 900,
+    width: 1024,
+    height: 768,
     frame: false,
-    resizable: true,
-	fullscreen: false,
-	icon: path.join(__dirname, 'icons/png/64x64.png')
+    resizable: false,
+	fullscreen: true,
+	icon: path.join(__dirname, 'icon/png/64x64.png')
   })
 
   // and load the index.html of the app.

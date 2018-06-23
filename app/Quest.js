@@ -5,7 +5,9 @@ var modal = require("./Modal.js")
 
 module.exports = {
 
-	// return question mark
+	/** 
+	 * @return question mark image
+	 */
 	img: function() {
 		var _this = this;
 		_this.counter = _this.counter + 1;
@@ -174,30 +176,6 @@ module.exports = {
 		} else {
 			$(".hidden-img").hide();
 		}
-		
-		/*
-		let img = new Image();
-		img.onload = function() {
-		
-			let $a = $("<a></a>");
-			let pomer = this.height / 2 / (window.innerHeight / 10);
-			let w = this.width / pomer + "px";
-			let $continue = $("<div></div>").attr("class", "pokracovat").css("width", w).click(function() { _this.pokracovat(quests, continueAction);})
-				.append($a);
-			let futurePos = "0 " + (this.height / pomer / 2) + "px";
-			$a.hover(function() {
-				$(this).css("background-position", futurePos);
-			}, function() {
-				 $(this).css("background-position", "0 0");
-			});
-				//background-position
-			$outer.append($continue);
-		}
-		img.src = 'img/button_pokracovat_modry.png';
-		
-		let $name = $("<img>").attr("src", "img/nazev_" + name + ".png").attr("class", "video-name-absolute quest-name");
-		$outer.append($name);
-		*/
 		
 		$outer.append(closeModal.html());
 		
